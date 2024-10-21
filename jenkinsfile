@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Bonjour') {
+            steps {
+                echo 'Bienvenue dans le pipeline Jenkins !'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                echo 'Nous effectuons le build du projet...'
+                // Ici, vous mettez les commandes pour le build
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo 'Nous effectuons les tests...'
+                // Ici, vous mettez les commandes pour les tests
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Le pipeline a réussi avec succès !'
+        }
+        failure {
+            echo 'Oups ! Il y a eu une erreur quelque part.'
+        }
+    }
+}
